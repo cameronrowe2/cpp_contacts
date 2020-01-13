@@ -1,2 +1,3 @@
 *.o
 name_of_the_app.app/*
+moc*
