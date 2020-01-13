@@ -6,8 +6,13 @@
 class QPushButton;
 class ContactList : public QWidget
 {
+    Q_OBJECT
 public:
     explicit ContactList(QWidget *parent = 0);
+signals:
+    void closeContactList();
+public slots:
+    void slotDelete();
 
 private:
     QPushButton *m_button;

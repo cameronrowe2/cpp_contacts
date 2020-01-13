@@ -6,8 +6,11 @@
 class QPushButton;
 class AddContact : public QWidget
 {
+    Q_OBJECT
 public:
     explicit AddContact(QWidget *parent = 0);
+private slots:
+    void slotButtonClicked(bool checked);
 
 private:
     QPushButton *m_button;

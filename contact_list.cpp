@@ -17,4 +17,11 @@ ContactList::ContactList(QWidget *parent) : QWidget(parent)
     QListView *listView = new QListView(parent);
     listView->setModel(stringListModel);
     listView->setGeometry(0, 20, 300, 300);
+
+    connect(this, SIGNAL(closeContactList()), this, SLOT(slotDelete()));
+}
+
+void ContactList::slotDelete()
+{
+    delete this;
 }
