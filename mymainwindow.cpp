@@ -7,19 +7,21 @@
 
 #include "mymainwindow.h"
 #include "page_1.h"
+#include "page_2.h"
 
 MainWindow::MainWindow() : QMainWindow()
 {
     stack = new QStackedWidget();
     list = new QListWidget();
 
-    Page_1 *page_1 = new Page_1();
+    widget = new QWidget();
+
+    Page_1 *page_1 = new Page_1(stack);
+    Page_2 *page_2 = new Page_2(stack);
 
     stack->addWidget(page_1);
-    stack->addWidget(new QLineEdit("Second ListWidget Item"));
+    stack->addWidget(page_2);
     stack->addWidget(new QLineEdit("Last Widget Item"));
-
-    widget = new QWidget();
 
     QLabel *label = new QLabel("Contact List App");
 
@@ -40,21 +42,7 @@ MainWindow::MainWindow() : QMainWindow()
     connect(list, SIGNAL(currentRowChanged(int)), stack, SLOT(setCurrentIndex(int)));
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *event)
+void MainWindow::addContactPage()
 {
-    switch (event->key())
-    {
-    case Qt::Key_Down:
-        connect(list, SIGNAL(currentRowChanged(int)), stack, SLOT(setCurrentIndex(int)));
-        break;
-    case Qt::Key_Up:
-        connect(list, SIGNAL(currentRowChanged(int)), stack, SLOT(setCurrentIndex(int)));
-        break;
-    case Qt::Key_Left:
-        stack->show(); // <---- Added
-        break;
-    case Qt::Key_Enter: // <---- Added
-        stack->hide();  // <---- Added
-        break;          // <---- Added
-    }
+    stack->setCurrentIndex(1);
 }

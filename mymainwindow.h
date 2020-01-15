@@ -13,9 +13,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     MainWindow();
-
-protected:
-    void keyPressEvent(QKeyEvent *event);
+    void addContactPage();
 
 private:
     QStackedWidget *stack;

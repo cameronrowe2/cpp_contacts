@@ -10,7 +10,7 @@ class AddContact : public QWidget
 public:
     explicit AddContact(QWidget *parent = 0);
 private slots:
-    void slotButtonClicked(bool checked);
+    void onSwitchPageClicked();
 
 private:
     QPushButton *m_button;

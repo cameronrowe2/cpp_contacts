@@ -1,22 +1,33 @@
 #include <QPushButton>
 #include <QApplication>
+#include <QVBoxLayout>
+#include <QWidgetList>
+#include <QWidget>
 
 #include "add_contact.h"
 #include "contact_list.h"
 #include "test_widget.h"
+#include "page_1.h"
+#include "mymainwindow.h"
 
 AddContact::AddContact(QWidget *parent) : QWidget(parent)
 {
     m_button = new QPushButton("Add Contact", this);
-    m_button->setGeometry(0, 320, 300, 50);
 
-    // connect(m_button, SIGNAL(clicked()), QApplication::instance(), SLOT(quit()));
-    connect(m_button, SIGNAL(clicked(bool)), this, SLOT(slotButtonClicked(bool)));
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(m_button);
+    setLayout(layout);
+
+    connect(m_button, SIGNAL(clicked()), this, SLOT(onSwitchPageClicked()));
 }
 
-void AddContact::slotButtonClicked(bool checked)
+void AddContact::onSwitchPageClicked()
 {
-    delete this;
-    ContactList *contactList = this->parentWidget()->findChild<ContactList *>();
-    emit contactList->closeContactList();
+    MainWindow *mainWindow = nullptr;
+    const QWidgetList topLevelWidgets = QApplication::topLevelWidgets();
+    for (QWidget *widget : topLevelWidgets)
+    {
+        mainWindow = dynamic_cast<MainWindow *>(widget);
+        mainWindow->addContactPage();
+    }
 }

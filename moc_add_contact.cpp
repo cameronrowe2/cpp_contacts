@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_AddContact_t {
-    QByteArrayData data[4];
-    char stringdata0[38];
+    QByteArrayData data[3];
+    char stringdata0[32];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,12 +32,11 @@ struct qt_meta_stringdata_AddContact_t {
 static const qt_meta_stringdata_AddContact_t qt_meta_stringdata_AddContact = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "AddContact"
-QT_MOC_LITERAL(1, 11, 17), // "slotButtonClicked"
-QT_MOC_LITERAL(2, 29, 0), // ""
-QT_MOC_LITERAL(3, 30, 7) // "checked"
+QT_MOC_LITERAL(1, 11, 19), // "onSwitchPageClicked"
+QT_MOC_LITERAL(2, 31, 0) // ""
 
     },
-    "AddContact\0slotButtonClicked\0\0checked"
+    "AddContact\0onSwitchPageClicked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,10 +54,10 @@ static const uint qt_meta_data_AddContact[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x08 /* Private */,
+       1,    0,   19,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Bool,    3,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -69,10 +68,11 @@ void AddContact::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         AddContact *_t = static_cast<AddContact *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->slotButtonClicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 0: _t->onSwitchPageClicked(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject AddContact::staticMetaObject = {
