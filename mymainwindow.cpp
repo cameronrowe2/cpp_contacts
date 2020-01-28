@@ -48,7 +48,7 @@ MainWindow::MainWindow() : QMainWindow()
     connect(list, SIGNAL(currentRowChanged(int)), stack, SLOT(setCurrentIndex(int)));
 
     Db *db = new Db();
-    vertical->addWidget(new QLabel(db->str));
+    // vertical->addWidget(new QLabel(db->str));
     db->printContacts();
     db->deleteDb();
 }
